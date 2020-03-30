@@ -23,7 +23,7 @@ namespace Skclusive.Markdown.Component
             return _token = base.Next();
         }
 
-        protected override string Tok()
+        protected virtual void MarkProgress()
         {
             switch (_token.Type)
             {
@@ -47,8 +47,17 @@ namespace Skclusive.Markdown.Component
 
                 markDownRenderer.ListInProgress = _listInProgress;
             }
+        }
 
-            return base.Tok();
+        protected override string Tok()
+        {
+            MarkProgress();
+
+            string result = base.Tok();
+
+            MarkProgress();
+
+            return result;
         }
     }
 }

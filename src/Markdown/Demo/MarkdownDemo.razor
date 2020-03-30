@@ -1,0 +1,36 @@
+@namespace Skclusive.Markdown.Component
+@inherits MarkdownDemoComponent
+
+<div
+    class="@_Class"
+    style="@_Style">
+    <div
+        class="@_ViewClass"
+        style="@_ViewStyle">
+        @ViewContent
+    </div>
+    @if (HasCode)
+    {
+        <div>
+            <div
+                style="@_HeaderStyle"
+                class="@_HeaderClass">
+                <div>
+                    <IconButton
+                        aria-label="@(CodeOpen ? "Hide Source" : "Show Source")"
+                        data-ga-event-action="expand"
+                        OnClick="@OnToggleCode"
+                        Color="@(DemoHovered ? Color.Primary : Color.Default)">
+                        <CodeIcon
+                            FontSize="@FontSize.Small" />
+                    </IconButton>
+                </div>
+            </div>
+            <Collapse
+                In="@CodeOpen"
+                UnmountOnExit>
+                @CodeContent
+            </Collapse>
+        </div>
+    }
+</div>

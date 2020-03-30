@@ -1,9 +1,10 @@
 @namespace Skclusive.Markdown.Component
-@inherits StyleComponentBase
+@inherits ThemeComponentBase
 
-<style data-name="MarkdownSection">
+<Styled
+    Name="MarkdownSection">
     .MarkdownSection-Root {
-        @* color: #fff; *@
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
         font-size: 16px;
         word-break: break-word;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
@@ -15,24 +16,18 @@
         overflow: auto;
         direction: ltr;
         border-radius: 4px;
-        @* background-color: #272c34; *@
+        background-color: var(--theme-custom-content-background-default, #f5f5f5);
         -webkit-overflow-scrolling: touch;
     }
 
     .MarkdownSection-Root code {
-        @* color: #fff; *@
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
         display: inline-block;
         padding: 2px 6px;
         font-size: 14px;
         font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
         border-radius: 2px;
-        @* background-color: rgba(255, 229, 100, 0.2); *@
         -webkit-font-smoothing: subpixel-antialiased;
-    }
-
-    .MarkdownSection-Root code[class*="language-"] {
-        @* color: #fff; *@
-        @* background-color: #272c34; *@
     }
 
     .MarkdownSection-Root p code,
@@ -80,13 +75,13 @@
     }
 
     .MarkdownSection-Root td {
-        @* color: #fff; *@
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
         padding: 16px;
         font-size: 0.875rem;
         font-family: "Roboto", "Helvetica", "Arial", sans-serif;
         font-weight: 400;
         line-height: 1.43;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
         letter-spacing: 0.01071em;
     }
 
@@ -96,13 +91,13 @@
     }
 
     .MarkdownSection-Root th {
-        @* color: #fff; *@
+        color: var(--theme-palette-text-primary, rgba(0, 0, 0, 0.87));
         padding: 16px;
         font-size: 14px;
         font-weight: 500;
         line-height: 1.5rem;
         white-space: pre;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        border-bottom: 1px solid var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
     .MarkdownSection-Root blockquote {
@@ -127,7 +122,7 @@
         height: 1px;
         margin: 48px 0px;
         flex-shrink: 0;
-        background-color: rgba(255, 255, 255, 0.12);
+        background-color: var(--theme-palette-divider, rgba(0, 0, 0, 0.12));
     }
 
     .MarkdownSection-Root a:hover,
@@ -145,11 +140,9 @@
     }
 
     .MarkdownSection-Root table .required {
-        @* color: #a5ffa5; *@
     }
 
     .MarkdownSection-Root table .prop-type {
-        @* color: #ffb6ec; *@
         font-size: 13px;
         font-family: Consolas, "Liberation Mono", Menlo, monospace;
     }
@@ -157,7 +150,7 @@
     .MarkdownSection-Root table .prop-default {
         font-size: 13px;
         font-family: Consolas, "Liberation Mono", Menlo, monospace;
-        border-bottom: 1px dotted rgba(255, 255, 255, 0.5);
+        border-bottom: 1px dotted var(--theme-palette-text-hint, rgba(0, 0, 0, 0.38));
     }
 
     .MarkdownSection-Root h1 code,
@@ -169,4 +162,59 @@
         line-height: inherit;
     }
 
-</style>
+    @if (IsAuto || IsLight) {
+        @if (IsAuto) {
+            @MediaSchemeLight @OpenCurly
+        }
+        @* .MarkdownSection-Root code {
+            background-color: rgba(255, 229, 100, 0.1);
+        } *@
+        @LightStyle
+        @if (IsAuto) {
+            @CloseCurly
+        }
+    }
+
+    @if (IsAuto || IsDark) {
+        @if (IsAuto) {
+            @MediaSchemeDark @OpenCurly
+        }
+        @DarkStyle
+        @if (IsAuto) {
+            @CloseCurly
+        }
+    }
+
+</Styled>
+
+@code
+{
+    private static readonly string LightStyle = @"
+        .MarkdownSection-Root table .required {
+            color: #006500;
+        }
+
+        .MarkdownSection-Root table .prop-type {
+            color: #932981;
+        }
+    ";
+
+    private static readonly string DarkStyle = @"
+        .MarkdownSection-Root code {
+            background-color: rgba(255, 229, 100, 0.2);
+        }
+
+        .MarkdownSection-Root table .required {
+            color: #a5ffa5;
+        }
+
+        .MarkdownSection-Root table .prop-type {
+            color: #ffb6ec;
+        }
+
+        .MarkdownSection-Root code[class*=""language-""] {
+            color: #fff;
+            background-color: #333;
+        }
+    ";
+}

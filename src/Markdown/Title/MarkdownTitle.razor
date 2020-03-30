@@ -1,5 +1,5 @@
 @namespace Skclusive.Markdown.Component
-@inherits TitleComponent
+@inherits MarkdownTitleComponent
 
 <Component
     Tag="@Component"
@@ -7,7 +7,7 @@
     Class="@_Class">
     @if (Level < 4)
     {
-        <Anchor
+        <MarkdownAnchor
             Style="@_AnchorStyle"
             Class="@_AnchorClass"
             LinkStyle="@_AnchorLinkStyle"

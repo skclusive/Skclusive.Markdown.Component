@@ -23,10 +23,13 @@ namespace Skclusive.Markdown.Component
 
         public override string Code(string code, string lang, bool escaped)
         {
-            Builder.OpenComponent<PrismCode>(Index++);
-            Builder.AddAttribute(Index++, "Language", lang);
-            Builder.AddAttribute(Index++, "Code", code);
-            Builder.CloseComponent();
+            if (Builder != null)
+            {
+                Builder.OpenComponent<PrismCode>(Index++);
+                Builder.AddAttribute(Index++, "Language", lang);
+                Builder.AddAttribute(Index++, "Code", code);
+                Builder.CloseComponent();
+            }
 
             return string.Empty;
         }
@@ -35,7 +38,7 @@ namespace Skclusive.Markdown.Component
         {
             var markup = $"<blockquote>\n{quote}</blockquote>\n";
 
-            Builder.AddMarkupContent(Index++, markup);
+            Builder?.AddMarkupContent(Index++, markup);
 
             return markup;
         }
@@ -44,17 +47,20 @@ namespace Skclusive.Markdown.Component
         {
             var markup = html;
 
-            Builder.AddMarkupContent(Index++, markup);
+            Builder?.AddMarkupContent(Index++, markup);
 
             return markup;
         }
 
         public override string Heading(string text, int level, string raw)
         {
-            Builder.OpenComponent<Title>(Index++);
-            Builder.AddAttribute(Index++, "Level", level);
-            Builder.AddAttribute(Index++, "Text", text);
-            Builder.CloseComponent();
+            if (Builder != null)
+            {
+                Builder.OpenComponent<MarkdownTitle>(Index++);
+                Builder.AddAttribute(Index++, "Level", level);
+                Builder.AddAttribute(Index++, "Text", text);
+                Builder.CloseComponent();
+            }
 
             return string.Empty;
         }
@@ -64,7 +70,7 @@ namespace Skclusive.Markdown.Component
             var type = ordered ? "ol" : "ul";
             var markup = $"<{type}>\n{body}</{type}>\n";
 
-            Builder.AddMarkupContent(Index++, markup);
+            Builder?.AddMarkupContent(Index++, markup);
 
             return markup;
         }
@@ -75,7 +81,7 @@ namespace Skclusive.Markdown.Component
 
             if (!QuoteInProgress && !ListInProgress)
             {
-                Builder.AddMarkupContent(Index++, markup);
+                Builder?.AddMarkupContent(Index++, markup);
             }
 
             return markup;
@@ -85,7 +91,7 @@ namespace Skclusive.Markdown.Component
         {
             var markup = $"<table{AttributesToString(this.Options.TableAttributes)}>\n<thead>\n{header}</thead>\n<tbody>\n{body}</tbody>\n</table>\n";
 
-            Builder.AddMarkupContent(Index++, markup);
+            Builder?.AddMarkupContent(Index++, markup);
 
             return markup;
         }

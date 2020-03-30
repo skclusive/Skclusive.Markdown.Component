@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Skclusive.Markdown.Component
 {
-    public class TitleComponent : EventComponentBase
+    public class MarkdownTitleComponent : EventComponentBase
     {
-        public TitleComponent() : base("MarkdownTitle")
+        public MarkdownTitleComponent() : base("MarkdownTitle")
         {
         }
 

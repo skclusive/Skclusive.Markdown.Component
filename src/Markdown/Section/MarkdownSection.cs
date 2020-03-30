@@ -3,9 +3,9 @@ using Skclusive.Core.Component;
 
 namespace Skclusive.Markdown.Component
 {
-    public class SectionComponent : EventComponentBase
+    public class MarkdownSectionComponent : EventComponentBase
     {
-        public SectionComponent() : base("MarkdownSection")
+        public MarkdownSectionComponent() : base("MarkdownSection")
         {
         }
 

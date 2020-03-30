@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
 using Skclusive.Core.Component;
 using System;
 using System.Collections.Generic;
@@ -7,14 +6,14 @@ using System.Linq;
 
 namespace Skclusive.Markdown.Component
 {
-    public class Demo : EventComponentBase
+    public class MarkdownAnchorComponent : EventComponentBase
     {
-        public Demo() : base("MarkdownDemo")
+        public MarkdownAnchorComponent() : base("MarkdownAnchor")
         {
         }
 
         [Parameter]
-        public Type Type { set; get; }
+        public string Text { set; get; }
 
         [Parameter]
         public string LinkStyle { set; get; }
@@ -45,15 +44,8 @@ namespace Skclusive.Markdown.Component
             }
         }
 
-        protected override void BuildRenderTree(RenderTreeBuilder builder)
-        {
-            builder.OpenElement(0, "div");
-            builder.AddAttribute(1, "style", _Style);
-            builder.AddAttribute(2, "class", _Class);
-            builder.OpenComponent<Dynamic>(4);
-            builder.AddAttribute(5, "Type", Type);
-            builder.CloseComponent();
-            builder.CloseElement();
-        }
+        protected string EscapedText => Uri.EscapeDataString(Text.ToLower());
+
+        protected string EscapedUrl => $"#{EscapedText}";
     }
 }

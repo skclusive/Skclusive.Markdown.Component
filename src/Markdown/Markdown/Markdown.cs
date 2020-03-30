@@ -8,45 +8,39 @@ using MarkedNet;
 
 namespace Skclusive.Markdown.Component
 {
-    public class Markdown : EventComponentBase
+    public class Markdown : MarkdownBase
     {
-        [Parameter]
-        public MarkdownRenderer Renderer { get; set; }
-
-        [Parameter]
-        public Options Options { get; set; }
-
-        [Parameter]
-        public MarkdownParser Parser { get; set;  }
-
-        [Parameter]
-        public string Text { set; get; }
-
         protected override void BuildRenderTree(RenderTreeBuilder builder)
         {
             var replaced = Regex.Replace(Text, @"---[\r\n]([\s\S]*)[\r\n]---", "", RegexOptions.Multiline);
 
-            var splits = Regex.Split(replaced, @"^{{(""demo"":[^}]*)}}$", RegexOptions.Multiline);
+            var splits = Regex.Split(replaced, @"^{{(""blazor"":[^}]*)}}$", RegexOptions.Multiline);
 
             int index = 0;
-            foreach(var split in splits.Where(x => !Regex.IsMatch(x, @"^\s*$")))
+            foreach (var split in splits.Where(x => !Regex.IsMatch(x, @"^\s*$")))
             {
                 builder.OpenRegion(index++);
-
-                if (split.StartsWith(@"""demo"":"))
+                if (split.StartsWith(@"""blazor"":"))
                 {
-                    var start = @"""demo"": """.Length;
-                    var type = Type.GetType(split.Substring(start, split.Length - start - 1));
-                    builder.OpenComponent<Demo>(1);
-                    builder.AddAttribute(2, "Type", type);
-                    builder.CloseComponent();
-                } else
+                    var start = @"""blazor"": """.Length;
+                    if (split.Length > start)
+                    {
+                        var type = split.Substring(start, split.Length - start - 1);
+                        var blazorType = Type.GetType(type);
+                        builder.OpenComponent<Reflected>(1);
+                        builder.AddAttribute(2, "Type", blazorType);
+                        builder.CloseComponent();
+                    }
+                }
+                else
                 {
-                    builder.OpenComponent<Segment>(1);
-                    builder.AddAttribute(2, "Text", split);
-                    builder.AddAttribute(3, "Options", Options);
-                    builder.AddAttribute(4, "Renderer", Renderer);
-                    builder.AddAttribute(5, "Parser", Parser);
+                    builder.OpenComponent<MarkdownSegment>(12);
+                    builder.AddAttribute(13, "Class", _Class);
+                    builder.AddAttribute(14, "Style", _Style);
+                    builder.AddAttribute(15, "Text", split);
+                    builder.AddAttribute(16, "Options", Options);
+                    builder.AddAttribute(17, "Renderer", Renderer);
+                    builder.AddAttribute(18, "Parser", Parser);
                     builder.CloseComponent();
                 }
                 builder.CloseRegion();
