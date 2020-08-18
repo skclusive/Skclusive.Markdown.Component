@@ -25,9 +25,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- <PackageReference Include="Skclusive.Material.Icon" Version="3.0.1-preview1" />
+    <PackageReference Include="Skclusive.Material.Icon" Version="3.0.1-preview1" />
     <PackageReference Include="Skclusive.Material.Button" Version="3.0.1-preview1" />
-    <PackageReference Include="Skclusive.Material.Transition" Version="3.0.1-preview1" /> -->
+    <PackageReference Include="Skclusive.Material.Transition" Version="3.0.1-preview1" />
   </ItemGroup>
 
   <!-- <ItemGroup>
@@ -35,10 +35,10 @@
     <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="3.0.1-preview1" />
   </ItemGroup> -->
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="3.0.1-preview1" />
     <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.1-preview1" />
     <ProjectReference Include="..\..\Skclusive.Material.Component\Transition\src\Transition.csproj" Version="3.0.1-preview1" />
-  </ItemGroup>
+  </ItemGroup> -->
 
 </Project>
