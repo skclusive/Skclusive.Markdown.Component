@@ -43,9 +43,13 @@ namespace Skclusive.Markdown.Component
                 builder.AddAttribute(3, "Style", _Style);
                 builder.AddAttribute(3, "ChildContent", (RenderFragment)((childBuilder) =>
                 {
+                    Renderer.Index = 0;
+
                     Renderer.Builder = childBuilder;
 
                     Parser.Parse(TokensResult);
+
+                    Renderer.Index = 0;
                 }));
             builder.CloseComponent();
         }
