@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.3-preview1</VersionPrefix>
+    <VersionPrefix>3.0.4-preview1</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Markdown.Component</AssemblyName>
@@ -19,26 +19,22 @@
     <PackageReference Include="MarkedNet" Version="2.1.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Skclusive.Core.Component" Version="3.0.3-preview1" />
+  <!-- <ItemGroup>
     <PackageReference Include="Skclusive.Script.Prism" Version="3.0.4-preview1" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Icon" Version="3.0.3-preview1" />
-    <PackageReference Include="Skclusive.Material.Button" Version="3.0.3-preview1" />
-    <PackageReference Include="Skclusive.Material.Transition" Version="3.0.3-preview1" />
+    <PackageReference Include="Skclusive.Material.Icon" Version="3.0.4-preview1" />
+    <PackageReference Include="Skclusive.Material.Button" Version="3.0.4-preview1" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <!-- <ProjectReference Include="..\..\Skclusive.Core.Component\src\Component.csproj" Version="3.0.3-preview1" /> -->
-    <!-- <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="3.0.4-preview1" /> -->
+    <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="3.0.3-preview1" />
-    <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.3-preview1" />
-    <ProjectReference Include="..\..\Skclusive.Material.Component\Transition\src\Transition.csproj" Version="3.0.3-preview1" />
+    <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.4-preview1" />
   </ItemGroup>
 
 </Project>

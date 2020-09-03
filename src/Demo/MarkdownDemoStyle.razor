@@ -1,0 +1,46 @@
+﻿@namespace Skclusive.Markdown.Component
+@inherits StyleComponentBase
+
+.MarkdownDemo-Root {
+    position: relative;
+    margin-left: -16px;
+    margin-right: -16px;
+    margin-bottom: 40px;
+}
+
+@media (min-width:600px) {
+    .MarkdownDemo-Root {
+        padding: 0px 8px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.MarkdownDemo-View {
+    margin: auto;
+    display: flex;
+    outline: 0;
+    padding: 20px;
+    border-radius: 4px;
+    justify-content: center;
+    background-color: var(--theme-custom-content-background-default);
+}
+
+@media (min-width:600px) {
+    .MarkdownDemo-View {
+        padding: 24px;
+    }
+}
+
+.MarkdownDemo-Header {
+    margin: 8px 0px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (min-width:600px) {
+    .MarkdownDemo-Header {
+        top: 0;
+        right: 8px;
+    }
+}
