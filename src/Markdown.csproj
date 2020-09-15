@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <VersionPrefix>3.0.4-preview1</VersionPrefix>
+    <VersionPrefix>3.0.0-preview2</VersionPrefix>
     <VersionSuffix>$(VersionSuffix)</VersionSuffix>
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>Skclusive.Markdown.Component</AssemblyName>
@@ -20,21 +20,21 @@
   </ItemGroup>
 
   <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Script.Prism" Version="3.0.4-preview1" />
+    <PackageReference Include="Skclusive.Script.Prism" Version="3.0.0-preview2" />
   </ItemGroup> -->
 
   <!-- <ItemGroup>
-    <PackageReference Include="Skclusive.Material.Icon" Version="3.0.4-preview1" />
-    <PackageReference Include="Skclusive.Material.Button" Version="3.0.4-preview1" />
+    <PackageReference Include="Skclusive.Material.Icon" Version="3.0.0-preview2" />
+    <PackageReference Include="Skclusive.Material.Button" Version="3.0.0-preview2" />
   </ItemGroup> -->
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="3.0.4-preview1" />
-    <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.4-preview1" />
+    <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="3.0.0-preview2" />
+    <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="3.0.0-preview2" />
   </ItemGroup>
 
 </Project>
