@@ -14,11 +14,10 @@ namespace Skclusive.Markdown.Component
 
         public bool ListInProgress { get; set; }
 
-        private int Index { get; set; }
+        public int Index { get; set; } = 0;
 
         public MarkdownRenderer()
         {
-            Index = 0;
         }
 
         public override string Code(string code, string lang, bool escaped)
