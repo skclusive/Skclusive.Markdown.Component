@@ -19,16 +19,16 @@
     <PackageReference Include="MarkedNet" Version="2.1.4" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <PackageReference Include="Skclusive.Script.Prism" Version="5.0.0" />
     <PackageReference Include="Skclusive.Material.Icon" Version="5.0.1" />
     <PackageReference Include="Skclusive.Material.Button" Version="5.0.1" />
-  </ItemGroup>
+  </ItemGroup> -->
 
-  <!-- <ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\Skclusive.Script.Prism\src\Prism.csproj" Version="5.0.0" />
     <ProjectReference Include="..\..\Skclusive.Material.Component\Icon\src\Icon.csproj" Version="5.0.1" />
     <ProjectReference Include="..\..\Skclusive.Material.Component\Button\src\Button.csproj" Version="5.0.1" />
-  </ItemGroup> -->
+  </ItemGroup>
 
 </Project>
