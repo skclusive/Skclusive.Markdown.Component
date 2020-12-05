@@ -6,6 +6,7 @@ namespace Skclusive.Markdown.Component
     {
         public MarkdownStyleProvider() : base
         (
+            priority: 1300,
             typeof(MarkdownSectionStyle),
             typeof(MarkdownTitleStyle),
             typeof(MarkdownAnchorStyle),
